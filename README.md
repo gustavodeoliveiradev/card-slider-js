@@ -12,10 +12,12 @@ Um carrossel de cards moderno e responsivo, desenvolvido com HTML5, CSS3 (Grid e
 Acesse o projeto online: [Clique aqui para ver o Card Slider](https://gustavodeoliveiradev.github.io/card-slider-js/)
 
 ## 🚀 Funcionalidades Atuais
-- **Auto-play:** Deslizamento automático a cada 3 segundos.
-- **Pausa Inteligente:** O slider para o movimento quando o usuário passa o mouse por cima.
-- **Layout Glassmorphism:** Estética moderna com fundo translúcido e desfoque.
-- **Totalmente Responsivo:** Ajusta a quantidade de cards exibidos conforme o tamanho da tela (1, 2 ou 3 cards).
+- **Auto-play & Intelligent Pause:** Deslizamento automático que pausa ao interagir com o carrossel.
+- **Drag-to-Scroll:** Suporte para arrastar os cards com o mouse (Desktop).
+- **Touch Friendly:** Compatibilidade total com dispositivos móveis (arraste com o dedo).
+- **Zero Text Selection:** Experiência imersiva sem seleção acidental de textos durante o arraste.
+- **Layout Glassmorphism:** Estética moderna com desfoque de fundo e bordas translúcidas.
+- **Totalmente Responsivo:** Design adaptável para qualquer tamanho de tela.
 
 ## 🛠️ Tecnologias Utilizadas
 - HTML5
@@ -25,10 +27,10 @@ Acesse o projeto online: [Clique aqui para ver o Card Slider](https://gustavodeo
 - Unsplash API (Imagens de exemplo)
 
 ## 📅 Diário de Bordo
-Este projeto é atualizado diariamente com novas melhorias:
+Este projeto é atualizado diariamente:
 - **Dia 1:** Estrutura base e correção de bugs de rolagem.
 - **Dia 2:** Implementação de layout Glassmorphism e lógica de Auto-play.
-- **Dia 3 (Próximo passo):** *A definir...*
+- **Dia 3:** Implementação de suporte a Drag (Mouse) e Touch (Mobile), correção de escopo de funções e melhorias de UX (User Experience).
 
 ---
 Desenvolvido com ❤️ como parte de um projeto de estudos.

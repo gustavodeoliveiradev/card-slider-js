@@ -80,11 +80,11 @@ body {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: #fff;
-    cursor: pointer;
+    cursor: grab;
     padding-bottom: 15px;
     flex-direction: column;
     border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
 
 .carousel .card:hover {
@@ -105,7 +105,7 @@ body {
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #fff;
+    border: 3px solid #ffffff;
 }
 
 .carousel .card h2 {
@@ -130,7 +130,7 @@ body {
 }
 
 .carousel.dragging .card {
-    cursor: grab;
+    cursor: grabbing;
     user-select: none;
 }
 
