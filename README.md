@@ -12,12 +12,12 @@ Um carrossel de cards moderno e responsivo, desenvolvido com HTML5, CSS3 (Grid e
 Acesse o projeto online: [Clique aqui para ver o Card Slider](https://gustavodeoliveiradev.github.io/card-slider-js/)
 
 ## 🚀 Funcionalidades Atuais
-- **Seamless Infinite Scroll:** Sistema inteligente de clonagem de cards que permite uma navegação infinita em ambos os sentidos, sem interrupções.
-- **Auto-play & Intelligent Pause:** Deslizamento automático que pausa ao interagir com o carrossel.
-- **Drag-to-Scroll & Touch Friendly:** Suporte total para arrastar com o mouse ou com o dedo em dispositivos móveis.
-- **UX Optmized:** Prevenção de seleção de texto durante o arraste e cursor dinâmico (grab/grabbing).
-- **Layout Glassmorphism:** Estética moderna com desfoque de fundo e bordas translúcidas.
-- **Totalmente Responsivo:** Design adaptável que recalcula o número de cards visíveis dinamicamente.
+- **Dynamic Search Filter:** Sistema de busca em tempo real que filtra os cards por nome, desativando inteligentemente o loop infinito e o auto-play durante a consulta.
+- **Seamless Infinite Scroll:** Sistema de clonagem de cards (Teletransporte do Goku) para navegação infinita.
+- **Auto-play & Intelligent Pause:** Deslizamento automático com pausa em hover e durante buscas.
+- **Drag-to-Scroll & Touch Friendly:** Experiência otimizada para Desktop e Mobile.
+- **Hybrid Layout (Grid/Flex):** Uso estratégico de CSS Grid para exibição e Flexbox para estabilidade durante filtragens.
+- **Layout Glassmorphism:** Estética moderna com transparências e desfoque.
 
 ## 🛠️ Tecnologias Utilizadas
 - HTML5
@@ -29,9 +29,10 @@ Acesse o projeto online: [Clique aqui para ver o Card Slider](https://gustavodeo
 ## 📅 Diário de Bordo
 Este projeto é atualizado diariamente:
 - **Dia 1:** Estrutura base e correção de bugs de rolagem.
-- **Dia 2:** Implementação de layout Glassmorphism e lógica de Auto-play.
+- **Dia 2:** Layout Glassmorphism e lógica de Auto-play.
 - **Dia 3:** Suporte a Drag/Touch e melhorias de UX.
-- **Dia 4:** Implementação do Infinite Loop real com clonagem dinâmica de elementos (DOM Manipulation) e lógica de teletransporte de scroll.
+- **Dia 4:** Infinite Loop real com clonagem dinâmica de elementos (DOM Manipulation).
+- **Dia 5:** Implementação de Filtro de Busca Dinâmico, refatoração para Flexbox e reestruturação do Main Container para melhor hierarquia visual.
 
 ---
 Desenvolvido com ❤️ como parte de um projeto de estudos.
