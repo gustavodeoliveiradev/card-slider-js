@@ -13,9 +13,9 @@ Acesse o projeto online: [Clique aqui para ver o Card Slider](https://gustavodeo
 
 ## 🚀 Funcionalidades Atuais
 - **Dark/Light Mode:** Sistema de troca de temas dinâmico utilizando Variáveis CSS (Custom Properties) e persistência de estado.
-- **Dynamic Search Filter:** Busca em tempo real com desativação automática de loops e clonagens para garantir precisão.
-- **Seamless Infinite Scroll:** Sistema de navegação infinita em ambos os sentidos (Infinite Loop).
-- **Auto-play & Intelligent Pause:** Movimentação automática inteligente que respeita a interação do usuário.
+- **Persistent Theme:** Agora o sistema lembra se você prefere Dark ou Light Mode através do `localStorage`.
+- **Modern Search:** Filtro inteligente que isola os cards originais dos clones durante a busca.
+- **Infinite Loop Architecture:** Lógica de clonagem para navegação fluida sem fim.
 - **UX Optmized:** Prevenção de seleção de texto, suporte a Drag-to-Scroll e cursor adaptativo.
 - **Glassmorphism Design:** Interface moderna com desfoque de fundo e bordas translúcidas adaptáveis ao tema.
 
@@ -33,7 +33,7 @@ Este projeto é atualizado diariamente:
 - **Dia 3:** Suporte a Drag/Touch e melhorias de UX.
 - **Dia 4:** Infinite Loop real com clonagem dinâmica de elementos.
 - **Dia 5:** Filtro de Busca Dinâmico e refatoração para Flexbox.
-- **Dia 6:** Implementação de Dark/Light Mode com Variáveis CSS e reestruturação da lógica de temas.
+- **Dia 6:** Implementação do Dark/Light Mode, uso de Variáveis CSS (Custom Properties) e persistência de dados no navegador com LocalStorage.
 
 ---
 Desenvolvido com ❤️ como parte de um projeto de estudos.
