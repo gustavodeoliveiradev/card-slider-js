@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Tenta pegar o tema salvo. Se não tiver nada, assume 'dark' como padrão.
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+
+    // Aplica o tema salvo logo de cara
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    // Ajusta o ícone do botão para corresponder ao tema salvo
+    const themeToggle = document.getElementById('themeToggle');
+    const icon = themeToggle.querySelector('i');
+
+    if (savedTheme === 'light') {
+        icon.classList.replace('fa-moon', 'fa-sun');
+    }
+
     const carousel = document.querySelector('.carousel');
     const leftArrow = document.getElementById('left');
     const rightArrow = document.getElementById('right');
@@ -148,4 +162,21 @@ document.addEventListener('DOMContentLoaded', function () {
     carousel.addEventListener('mouseleave', startAutoPlay);
 
     startAutoPlay();
+
+    // --- 6. TEMA (LÓGICA DE TROCA) ---
+
+    themeToggle.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme');
+
+        if (theme === 'light') {
+            theme = 'dark';
+            icon.classList.replace('fa-sun', 'fa-moon');
+        } else {
+            theme = 'light';
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    });
 });

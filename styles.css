@@ -1,5 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root {
+    /* Cores do Modo Dark (Padrão) */
+    --bg-color: #0f172a;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --text-color: #ffffff;
+    --accent-color: #38bdf8;
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --arrow-bg: #38bdf8;
+    --arrow-color: #0f172a;
+}
+
+[data-theme="light"] {
+    /* Cores do Modo Light */
+    --bg-color: #f1f5f9;
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+    --text-color: #1e293b;
+    --accent-color: #0284c7;
+    --input-bg: #ffffff;
+    --arrow-bg: #0284c7;
+    --arrow-color: #ffffff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +37,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #0f172a;
+    background: var(--bg-color);
 }
 
 .main-container {
@@ -25,6 +49,23 @@ body {
     /* Deixamos a busca em cima e Carrossel embaixo */
     gap: 30px;
     /* Espaço entre a busca e o carrossel */
+}
+
+.theme-switch {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+#themeToggle {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 0.3s;
 }
 
 .search-container {
@@ -39,9 +80,9 @@ body {
     padding: 12px 40px 12px 15px;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--input-bg);
     backdrop-filter: blur(10px);
-    color: #fff;
+    color: var(--text-color);
     outline: none;
 }
 
@@ -50,7 +91,7 @@ body {
     right: 35px;
     top: 50%;
     transform: translateY(-50%);
-    color: #fff;
+    color: var(--text-color);
 }
 
 /* Se o carrossel tiver uma classe especial de 'filtrando', escondemos os clones */
@@ -85,8 +126,8 @@ body {
     position: absolute;
     text-align: center;
     line-height: 50px;
-    background: #38bdf8;
-    color: #0f172a;
+    background: var(--arrow-bg);
+    color: var(--arrow-color);
     border: none;
     border-radius: 50%;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -130,10 +171,10 @@ body {
     scroll-snap-align: start;
     height: 342px;
     list-style: none;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--card-bg);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
     cursor: grab;
     padding-bottom: 15px;
     flex-direction: column;
@@ -169,7 +210,7 @@ body {
 }
 
 .carousel .card span {
-    color: #38bdf8;
+    color: var(--accent-color);
     font-weight: 300;
     font-size: 1.31rem;
 }
@@ -193,20 +234,12 @@ body {
 }
 
 @media screen and (max-width: 900px) {
-    .wrapper .carousel {
-        grid-auto-columns: calc((100% / 2) - 9px);
-    }
-
     .card {
         min-width: calc((100% / 2) - 8px);
     }
 }
 
 @media screen and (max-width: 600px) {
-    .wrapper .carousel {
-        grid-auto-columns: 100%;
-    }
-
     .card {
         min-width: 100%;
     }
