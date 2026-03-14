@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* --- 1. VARIÁVEIS E TEMAS --- */
 :root {
-    /* Cores do Modo Dark (Padrão) */
     --bg-color: #0f172a;
     --card-bg: rgba(255, 255, 255, 0.05);
     --card-border: rgba(255, 255, 255, 0.1);
@@ -13,7 +13,6 @@
 }
 
 [data-theme="light"] {
-    /* Cores do Modo Light */
     --bg-color: #f1f5f9;
     --card-bg: #ffffff;
     --card-border: #e2e8f0;
@@ -24,6 +23,7 @@
     --arrow-color: #ffffff;
 }
 
+/* --- 2. RESET E BASE --- */
 * {
     margin: 0;
     padding: 0;
@@ -33,28 +33,27 @@
 
 body {
     display: flex;
-    padding: 20px;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     min-height: 100vh;
     background: var(--bg-color);
+    padding: 20px;
+    transition: background 0.3s ease;
 }
 
+/* --- 3. LAYOUT PRINCIPAL --- */
 .main-container {
     width: 100%;
     max-width: 1100px;
-    /* Largura máxima do projeto */
     display: flex;
     flex-direction: column;
-    /* Deixamos a busca em cima e Carrossel embaixo */
-    gap: 30px;
-    /* Espaço entre a busca e o carrossel */
+    gap: 20px;
 }
 
+/* --- 4. CONTROLES (TEMA E BUSCA) --- */
 .theme-switch {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 10px;
 }
 
 #themeToggle {
@@ -64,183 +63,138 @@ body {
     padding: 10px 15px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1.2rem;
-    transition: 0.3s;
+    font-size: 1.1rem;
+    transition: 0.3s ease;
 }
 
 .search-container {
-    max-width: 1100px;
-    margin: 0 auto 30px auto;
     width: 100%;
     position: relative;
 }
 
 #searchInput {
     width: 100%;
-    padding: 12px 40px 12px 15px;
+    padding: 12px 45px 12px 15px;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid var(--card-border);
     background: var(--input-bg);
     backdrop-filter: blur(10px);
     color: var(--text-color);
     outline: none;
+    transition: 0.3s;
 }
 
 .search-container i {
     position: absolute;
-    right: 35px;
+    right: 15px;
     top: 50%;
     transform: translateY(-50%);
     color: var(--text-color);
+    opacity: 0.7;
 }
 
-/* Se o carrossel tiver uma classe especial de 'filtrando', escondemos os clones */
-.carousel.filtering .clone {
-    display: none !important;
-}
-
-.carousel {
-    display: flex !important;
-    overflow-x: auto;
-    gap: 16px;
-    scroll-behavior: smooth;
-}
-
-.card {
-    min-width: calc((100% / 3) - 12px);
-    flex-shrink: 0;
-}
-
+/* --- 5. O MOTOR DO CARROSSEL --- */
 .wrapper {
-    max-width: 1100px;
     width: 100%;
     position: relative;
 }
 
-.wrapper i {
-    top: 50%;
-    height: 50px;
-    width: 50px;
-    cursor: pointer;
-    font-size: 1.25rem;
-    position: absolute;
-    text-align: center;
-    line-height: 50px;
-    background: var(--arrow-bg);
-    color: var(--arrow-color);
-    border: none;
-    border-radius: 50%;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
-    transform: translateY(-50%);
-    transition: transform 0.1s linear;
-    z-index: 1;
-}
-
-#left {
-    left: -22px;
-}
-
-#right {
-    right: -22px;
-}
-
-.wrapper .carousel {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: calc((100% / 3) - 12px);
+.carousel {
+    display: flex !important; /* Força flex para o filtro funcionar */
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
     gap: 16px;
-    border-radius: 8px;
+    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     scrollbar-width: none;
+    border-radius: 8px;
 }
 
 .carousel::-webkit-scrollbar {
     display: none;
 }
 
-.carousel .card,
-.carousel .img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Setas de Navegação */
+.wrapper i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 45px;
+    width: 45px;
+    background: var(--arrow-bg);
+    color: var(--arrow-color);
+    text-align: center;
+    line-height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.1s, opacity 0.3s;
 }
 
-.carousel .card {
-    scroll-snap-align: start;
-    height: 342px;
+#left { left: -20px; }
+#right { right: -20px; }
+
+.wrapper i:active { transform: translateY(-50%) scale(0.9); }
+
+/* Estados Especiais */
+.carousel.filtering .clone { display: none !important; }
+.carousel.no-transition { scroll-behavior: auto; }
+.carousel.dragging { scroll-snap-type: none; scroll-behavior: auto; }
+
+/* --- 6. CARDS --- */
+.card {
+    min-width: calc((100% / 3) - 12px);
+    height: 340px;
     list-style: none;
     background: var(--card-bg);
     backdrop-filter: blur(10px);
     border: 1px solid var(--card-border);
     color: var(--text-color);
-    cursor: grab;
-    padding-bottom: 15px;
+    border-radius: 12px;
+    display: flex;
     flex-direction: column;
-    border-radius: 8px;
-    transition: transform 0.6s ease, box-shadow 0.6s ease;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    scroll-snap-align: start;
+    transition: transform 0.4s ease, background 0.4s ease;
 }
 
-.carousel .card:hover {
-    transform: translateY(-10px) scale(1.02);
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+.card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.08);
 }
 
-.carousel .img {
-    background-color: #ffed4c;
+.carousel.dragging .card { cursor: grabbing; user-select: none; }
+
+.card .img {
     height: 110px;
     width: 110px;
+    background: #ffed4c;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .card .img img {
-    width: 100%;
+    width: 100px;
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #ffffff;
+    border: 3px solid #fff;
 }
 
-.carousel .card h2 {
-    font-weight: 500;
-    font-size: 1.56rem;
-    margin: 30px 0 5px;
-}
+.card h2 { font-size: 1.5rem; margin-bottom: 5px; font-weight: 600; }
+.card span { color: var(--accent-color); font-size: 1.1rem; }
 
-.carousel .card span {
-    color: var(--accent-color);
-    font-weight: 300;
-    font-size: 1.31rem;
-}
-
-.carousel.no-transition,
-.carousel.dragging {
-    scroll-behavior: auto;
-}
-
-.carousel.dragging {
-    scroll-snap-type: none;
-}
-
-.carousel.dragging .card {
-    cursor: grabbing;
-    user-select: none;
-}
-
-.wrapper i:active {
-    transform: translateY(-50%) scale(0.85);
-}
-
+/* --- 7. RESPONSIVIDADE --- */
 @media screen and (max-width: 900px) {
-    .card {
-        min-width: calc((100% / 2) - 8px);
-    }
+    .card { min-width: calc((100% / 2) - 8px); }
+    #left, #right { display: none; } /* Oculta setas em tablets/mobile para usar touch */
 }
 
 @media screen and (max-width: 600px) {
-    .card {
-        min-width: 100%;
-    }
+    .card { min-width: 100%; }
 }
